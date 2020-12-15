@@ -5,9 +5,12 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.AlarmClock.EXTRA_MESSAGE
 import android.view.View
+import android.webkit.WebView
 import android.widget.*
 import jonathan.rosa.sjonify.adapters.AlbumAdapter
 import jonathan.rosa.sjonify.models.AlbumItem
+import kotlinx.android.synthetic.main.activity_principal.*
+import kotlinx.android.synthetic.main.activity_web_view_page.*
 
 class principal : AppCompatActivity(),AdapterView.OnItemClickListener {
     private var arrayList:ArrayList<AlbumItem>?=null
@@ -26,8 +29,30 @@ class principal : AppCompatActivity(),AdapterView.OnItemClickListener {
 
         gridView?.onItemClickListener = this
 
+        repro.setOnClickListener(){
+            val intent = Intent(this,MainActivity::class.java)
+            startActivity(intent)
+        }
+
+        video.setOnClickListener(){
+            val intent = Intent(this,videoView::class.java)
+            startActivity(intent)
+        }
+
+        web.setOnClickListener(){
+            val intent = Intent(this,WebViewPage::class.java)
+            startActivity(intent)
+        }
+
+        recycler.setOnClickListener(){
+            val intent = Intent(this,MyRecyclerView::class.java)
+            startActivity(intent)
+        }
+
+
 
     }
+
 
 
     private fun setDataList():ArrayList<AlbumItem>{
